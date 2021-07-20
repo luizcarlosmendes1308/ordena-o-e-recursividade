@@ -1,0 +1,44 @@
+#include <iostream>
+#include <locale.h>
+using namespace std;
+
+void selection_sort(int v[], int a)
+{
+	int grava;
+	for(int i = 0; i < a - 1; i++)
+	{
+		for(int j = i + 1; j < a; j++)
+		{
+			cout << "[" << j << "]: " << v[j - 1] << ", [" << j + 1 << "] : " << v[j] ;
+
+			if(v[i] > v[j] )
+			{
+				grava = v[i];
+				v[i] = v[j];
+				v[j] = grava;
+				cout << " - trocou";
+			}
+			 cout << endl;
+		}
+		cout << "------------------" << endl;
+	}
+}
+
+void print (int b , int *c)
+{
+	for(int i = 0; i < b; i++)
+	{
+		cout << i + 1 << "° Valor =  " << c[i] << endl;
+	}
+	cout << "------------------" << endl;
+}
+
+int main(int argc, char** argv)
+{
+	setlocale(LC_ALL, "");
+	int v[10] = {4, 7, 2, 5, 0, 1, 6, 9, 3, 8};
+	cout << "------------------" << endl;
+	selection_sort(v, 10);
+	print(10, v);
+	return 0;
+}
